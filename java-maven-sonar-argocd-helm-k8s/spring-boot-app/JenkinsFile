@@ -82,12 +82,11 @@ pipeline {
         GIT_USER_NAME = "rommel2306"
       }
       steps {
+        checkout scm
         withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
           sh '''
-          cd $WORKSPACE
-
-          git config user.email "rommel.jefrin23@gmail.com"
-          git config user.name "Rommel"
+          git config user.email "romel.jefrin@gmail.com"
+          git config user.name "rommel2306"
 
           sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
 
