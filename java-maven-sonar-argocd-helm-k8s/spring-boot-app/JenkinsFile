@@ -45,6 +45,9 @@ pipeline {
       }
       steps {
         sh '''
+        apt-get update
+        apt-get install -y docker.io
+
         cd java-maven-sonar-argocd-helm-k8s/spring-boot-app
         docker build -t ${DOCKER_IMAGE} .
         '''
